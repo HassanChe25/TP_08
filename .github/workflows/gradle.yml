@@ -24,6 +24,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # FIX: Permission issue
+      - name: Give execute permission to gradlew
+        run: chmod +x gradlew
+
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
