@@ -1,0 +1,48 @@
+name: Java CI - Advanced
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: [21]
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up JDK
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: temurin
+
+      # 3️⃣ Make Gradle wrapper executable
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
+
+      # 4️⃣ Build project and run tests with H2 profile
+      - name: Build and test with H2
+        run: ./gradlew clean test -Dspring.profiles.active=test --info
+
+      # 5️⃣ Upload test results to GitHub Actions (JUnit XML format)
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-test-results
+          path: build/test-results/test/*.xml
+
+      # 6️⃣ Show failed test logs in console
+      - name: Print failed test logs
+        if: failure()
+        run: |
+          echo "=== Showing failed test logs ==="
+          find build/test-results/test -type f -name "*.txt" -exec cat {} +
