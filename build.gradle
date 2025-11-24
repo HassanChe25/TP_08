@@ -24,17 +24,23 @@ ext {
 }
 
 dependencies {
+	// Spring Boot Web & JPA
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.modulith:spring-modulith-starter-core'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.modulith:spring-modulith-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	testImplementation 'com.h2database:h2'
+	implementation 'org.springframework.modulith:spring-modulith-starter-core'
 
+	// MySQL (للتشغيل العادي فقط)
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// Development tools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // يشمل JUnit + Mockito
+	testImplementation 'org.springframework.modulith:spring-modulith-starter-test'
+	testImplementation 'com.h2database:h2' // قاعدة بيانات H2 للـ tests
 }
+
 
 dependencyManagement {
 	imports {
