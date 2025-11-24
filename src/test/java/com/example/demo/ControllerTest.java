@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.example.demo.Model.Student;
 import com.example.demo.Repository.StudentRepository;
+import org.springframework.test.context.ActiveProfiles;
+
 
 import static org.assertj.core.api.Assertions.assertThat; 
 import java.util.List; 
@@ -24,7 +26,7 @@ public class ControllerTest {
     void shouldSaveStudent() { 
         // Create a new student object 
         Student student = new Student(); 
-        student.setFirst_name("Charlie"); 
+        student.setFirstname("Charlie");
         student.setEmail("Algeria"); 
  
         // Save the student to the H2 in-memory database 

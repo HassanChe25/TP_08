@@ -43,11 +43,11 @@ public class Student {
         this.email = email;
     }
 
-    public void setFirst_name(String first_name) {
+    public void setFirstname(String first_name) {
         this.firstName = first_name;
     }
 
-    public void setLast_name(String last_name) {
+    public void setLastname(String last_name) {
         this.lastName = lastName;
     }
 
