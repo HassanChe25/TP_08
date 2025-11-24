@@ -38,7 +38,8 @@ dependencies {
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test' // يشمل JUnit + Mockito
 	testImplementation 'org.springframework.modulith:spring-modulith-starter-test'
-	testImplementation 'com.h2database:h2' // قاعدة بيانات H2 للـ tests
+	testImplementation 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 
