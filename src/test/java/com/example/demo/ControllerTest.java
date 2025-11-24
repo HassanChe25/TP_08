@@ -12,8 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List; 
  
 // Indicates this is a Spring Boot test that loads the full application context 
-@SpringBootTest 
- 
+@SpringBootTest
+@ActiveProfiles("test")
 // Specifies the order in which test methods will be executed 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) 
 
