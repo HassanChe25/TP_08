@@ -37,8 +37,8 @@ public class StudentService  {
         Student student = studentRepository.findByfirstName(name);
         if (student != null) {
             
-            student.setFirst_name(std.getFirstName());
-            student.setLast_name(std.getLastName());
+            student.setFirstname(std.getFirstName());
+            student.setLastname(std.getLastName());
             student.setUniversity(std.getUniversity());
             student.setEmail(std.getEmail());
            
