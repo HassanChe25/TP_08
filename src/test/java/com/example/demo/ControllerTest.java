@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.demo.Model.Student;
 import com.example.demo.Repository.StudentRepository;
 import org.springframework.test.context.ActiveProfiles;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat; 
 import java.util.List; 
@@ -14,6 +14,7 @@ import java.util.List;
 // Indicates this is a Spring Boot test that loads the full application context 
 @SpringBootTest
 @ActiveProfiles("test")
+@Transactional
 // Specifies the order in which test methods will be executed 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) 
 
