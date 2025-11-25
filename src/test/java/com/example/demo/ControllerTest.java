@@ -33,7 +33,6 @@ public class ControllerTest {
     @Test
     @Order(2)
     void shouldFindAllStudents() {
-        // إنشاء الطالب داخل الاختبار لضمان وجوده
         Student student = new Student();
         student.setFirstname("Charlie");
         student.setEmail("Algeria");
